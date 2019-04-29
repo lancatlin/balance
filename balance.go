@@ -1,16 +1,50 @@
 package main
 
-var primeNumbers []int = []int{2, 3, 5, 7, 9, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 51}
+import (
+	"log"
+)
 
-func balance(reactants []int, products []int) (rCoefficients []int, pCoefficients []int, err error) {
+var primeNumbers []int
 
-	return
+func init() {
+	primeNumbers = []int{2, 3, 5, 7, 9, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 51}
 }
 
-func primeFactorization(number int) (factors map[int]int) {
-	return
+func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
+	log.Println(a, b, ca, cb)
+	na, nb := getInNeeds(sum(a, ca), sum(b, cb))
+	if na != 1 {
+		i := selectFactor(a, na)
+		ca[i]++
+		return balance(a, b, ca, cb)
+	} else if nb != 1 {
+		rb, ra, err = balance(b, a, cb, ca)
+		return
+	} else {
+		return ca, cb, nil
+	}
 }
 
-func leastCommonMultiple(aNum, bNum int) (result int) {
-	return
+func getInNeeds(a, b int) (int, int) {
+	multiple := leastCommonMultiple(a, b)
+	return multiple / a, multiple / b
+}
+
+func selectFactor(a []int, na int) int {
+	leastV, leastI := int(1e10), 0
+	i := 0
+	for {
+		v := a[i]
+		l := leastCommonMultiple(na, v)
+		if l < leastV && l != v*na {
+			leastV = l
+			leastI = i
+		} else if l == na && v > a[leastI] {
+			leastI = i
+		}
+		if i == len(a)-1 {
+			return leastI
+		}
+		i++
+	}
 }
