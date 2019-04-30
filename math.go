@@ -1,5 +1,15 @@
 package balance
 
+import (
+	"log"
+)
+
+var Num int
+
+func init() {
+	Num = 0
+}
+
 func sum(numbers, pow []int) int {
 	n := 1
 	for i, number := range numbers {
@@ -7,12 +17,16 @@ func sum(numbers, pow []int) int {
 			n *= number
 		}
 	}
+	if n == -1 {
+		log.Fatalln("Number has out of int: ", numbers, pow)
+	}
 	return n
 }
 
 func maximumCommonFactor(a, b int) int {
+	Num++
 	c, d := a, b
-	for true {
+	for {
 		if c >= d {
 			if d == 0 {
 				return c
@@ -23,7 +37,6 @@ func maximumCommonFactor(a, b int) int {
 			c, d = d, c
 		}
 	}
-	return -1 // error
 }
 
 func leastCommonMultiple(aNum, bNum int) int {

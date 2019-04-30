@@ -11,7 +11,7 @@ func init() {
 }
 
 func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
-	log.Println(a, b, ca, cb)
+	log.Printf("%v %v\t%v %v\n", a, b, ca, cb)
 	na, nb := getInNeeds(sum(a, ca), sum(b, cb))
 	if na != 1 {
 		i := selectFactor(a, na)
@@ -27,6 +27,9 @@ func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
 
 func getInNeeds(a, b int) (int, int) {
 	multiple := leastCommonMultiple(a, b)
+	if multiple <= 0 {
+		log.Fatalln("multiple is lower than 0:", multiple)
+	}
 	return multiple / a, multiple / b
 }
 

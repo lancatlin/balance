@@ -3,9 +3,16 @@ package balance
 import (
 	"log"
 	"strconv"
+	"strings"
 )
 
-func convEquation(equation []rune) (reactants, products []int) {
+func convEquation(equation string) (reactants, products []int) {
+	equation = strings.ReplaceAll(equation, " ", "")
+	eq := strings.Split(equation, "=")
+	if len(eq) < 2 {
+		log.Fatalln("Can't compile this equation: ", equation)
+	}
+	a, b := eq[0], eq[1]
 	return
 }
 
