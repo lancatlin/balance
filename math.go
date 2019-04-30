@@ -1,4 +1,4 @@
-package main
+package balance
 
 func sum(numbers, pow []int) int {
 	n := 1

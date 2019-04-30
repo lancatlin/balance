@@ -1,15 +1,8 @@
-package main
+package balance
 
 import (
 	"testing"
 )
-
-type Equation struct {
-	Qr []int
-	Qp []int
-	Ar []int
-	Ap []int
-}
 
 func init1Slice(l int) []int {
 	slice := make([]int, l, l)
@@ -20,6 +13,12 @@ func init1Slice(l int) []int {
 }
 
 func TestBalance(t *testing.T) {
+	type Equation struct {
+		Qr []int
+		Qp []int
+		Ar []int
+		Ap []int
+	}
 	testData := []Equation{
 		// "C2H5OH + 3O2 → 2CO2 + 3H2O"
 		Equation{

@@ -1,4 +1,4 @@
-package main
+package balance
 
 import (
 	"log"
@@ -31,10 +31,8 @@ func getInNeeds(a, b int) (int, int) {
 }
 
 func selectFactor(a []int, na int) int {
-	leastV, leastI := int(1e10), 0
-	i := 0
-	for {
-		v := a[i]
+	leastV, leastI := int(1e10), -1
+	for i, v := range a {
 		l := leastCommonMultiple(na, v)
 		if l < leastV && l != v*na {
 			leastV = l
@@ -42,9 +40,6 @@ func selectFactor(a []int, na int) int {
 		} else if l == na && v > a[leastI] {
 			leastI = i
 		}
-		if i == len(a)-1 {
-			return leastI
-		}
-		i++
 	}
+	return leastI
 }
