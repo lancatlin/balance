@@ -1,0 +1,6 @@
+[
+  ["CH4 + O2 =CO2+H2O", "CH4 + 2O2 = CO2 + 2H2O"],
+  ["C2H5OH+O2=CO2 + H2O", "C2H5OH + 3O2 = 2CO2 + 3H2O"],
+  ["C3H8 + O2 = CO2 + H2O", "C3H8 + 5O2 = 3CO2 + 4H2O"],
+  ["Fe2O3 + C = Fe + CO2", "2Fe2O3 + 3C = 4Fe + 3CO2"]
+]

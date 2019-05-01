@@ -46,3 +46,11 @@ func TestConvEquation(t *testing.T) {
 		t.Error("Conversion Fatal: ", reactants, products)
 	}
 }
+
+func TestExport(t *testing.T) {
+	equation := "C2H5OH + O2 = CO2 + H2O"
+	ca, cb := []int{1, 3}, []int{2, 3}
+	if a := export(equation, ca, cb); a != "C2H5OH + 3O2 = 2CO2 + 3H2O" {
+		t.Error("Export fatal: ", a)
+	}
+}

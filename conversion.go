@@ -6,14 +6,19 @@ import (
 	"strings"
 )
 
-func convEquation(equation string) (reactants, products []int) {
+func split(equation string) (r, p []string) {
 	equation = strings.ReplaceAll(equation, " ", "")
 	eq := strings.Split(equation, "=")
 	if len(eq) != 2 {
 		log.Fatalln("Can't compile this equation: ", equation)
 	}
 	a, b := eq[0], eq[1]
-	r, p := strings.Split(a, "+"), strings.Split(b, "+")
+	r, p = strings.Split(a, "+"), strings.Split(b, "+")
+	return
+}
+
+func convEquation(equation string) (reactants, products []int) {
+	r, p := split(equation)
 	allElement := make(map[string]int)
 	var re, pe []map[string]int
 	for _, v := range r {
@@ -43,6 +48,23 @@ func convEquation(equation string) (reactants, products []int) {
 	return
 }
 
+func export(equation string, ca, cb []int) string {
+	r, p := split(equation)
+	for i, v := range r {
+		if ca[i] > 1 {
+			r[i] = strconv.Itoa(ca[i]) + v
+		}
+	}
+	for i, v := range p {
+		if cb[i] > 1 {
+			p[i] = strconv.Itoa(cb[i]) + v
+		}
+	}
+	reactant := strings.Join(r, " + ")
+	products := strings.Join(p, " + ")
+	return reactant + " = " + products
+}
+
 func sumElements(element, eWeights map[string]int) (sum int) {
 	sum = 1
 	for key, value := range element {
@@ -62,7 +84,6 @@ func analysis(equation []rune) (elements map[string]int) {
 			if nh == -1 {
 				// No number
 				name := string(equation[eh:i])
-				log.Println(name)
 				elements[name]++
 			} else {
 				name := string(equation[eh:nh])

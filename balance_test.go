@@ -4,14 +4,6 @@ import (
 	"testing"
 )
 
-func init1Slice(l int) []int {
-	slice := make([]int, l, l)
-	for i := range slice {
-		slice[i] = 1
-	}
-	return slice
-}
-
 func TestBalance(t *testing.T) {
 	type Equation struct {
 		Qr []int
