@@ -25,24 +25,30 @@ func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
 	}
 }
 
-func getInNeeds(a, b int) (int, int) {
-	multiple := leastCommonMultiple(a, b)
-	if multiple <= 0 {
-		log.Fatalln("multiple is lower than 0:", multiple)
+func getInNeeds(a, b uint64) (uint64, uint64) {
+	factor := maximumCommonFactor(a, b)
+	if factor <= 0 {
+		log.Fatalln("multiple is lower than 0:", factor)
 	}
-	return multiple / a, multiple / b
+	return b / factor, a / factor
 }
 
-func selectFactor(a []int, na int) int {
-	leastV, leastI := int(1e10), -1
+func selectFactor(a []int, na uint64) int {
+	var leastV uint64
+	leastV--
+	leastI := -1
 	for i, v := range a {
-		l := leastCommonMultiple(na, v)
-		if l < leastV && l != v*na {
+		uv := uint64(v)
+		l := leastCommonMultiple(na, uv)
+		if l < leastV && l != uv*na {
 			leastV = l
 			leastI = i
 		} else if l == na && v > a[leastI] {
 			leastI = i
 		}
+	}
+	if leastI == -1 {
+		log.Fatalln("Select factor result is -1: ", a, na, leastV)
 	}
 	return leastI
 }

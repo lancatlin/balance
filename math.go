@@ -1,30 +1,18 @@
 package balance
 
-import (
-	"log"
-)
+import ()
 
-var Num int
-
-func init() {
-	Num = 0
-}
-
-func sum(numbers, pow []int) int {
-	n := 1
+func sum(numbers, pow []int) uint64 {
+	var n uint64 = 1
 	for i, number := range numbers {
 		for j := 0; j < pow[i]; j++ {
-			n *= number
+			n *= uint64(number)
 		}
-	}
-	if n == -1 {
-		log.Fatalln("Number has out of int: ", numbers, pow)
 	}
 	return n
 }
 
-func maximumCommonFactor(a, b int) int {
-	Num++
+func maximumCommonFactor(a, b uint64) uint64 {
 	c, d := a, b
 	for {
 		if c >= d {
@@ -39,7 +27,7 @@ func maximumCommonFactor(a, b int) int {
 	}
 }
 
-func leastCommonMultiple(aNum, bNum int) int {
+func leastCommonMultiple(aNum, bNum uint64) uint64 {
 	factor := maximumCommonFactor(aNum, bNum)
 	return aNum * bNum / factor
 }

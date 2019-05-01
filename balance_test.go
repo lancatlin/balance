@@ -54,14 +54,12 @@ func TestBalance(t *testing.T) {
 			[]int{1, 2},
 			[]int{1, 2, 2},
 		},
-		/*
-			Equation{
-				[]int{49, 30},
-				[]int{945, 35, 12},
-				[]int{3, 6},
-				[]int{1, 5, 3},
-			},
-		*/
+		Equation{
+			[]int{49, 30},
+			[]int{945, 35, 12},
+			[]int{3, 6},
+			[]int{1, 5, 3},
+		},
 	}
 	for _, v := range testData {
 		ra, rb, err := balance(v.Qr, v.Qp, init1Slice(len(v.Qr)), init1Slice(len(v.Qp)))
@@ -72,5 +70,4 @@ func TestBalance(t *testing.T) {
 			t.Errorf("Answer is not correct: ra: %d\trb: %d\t\n", ra, rb)
 		}
 	}
-	t.Log(Num)
 }

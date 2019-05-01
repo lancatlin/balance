@@ -13,12 +13,13 @@ func TestSum(t *testing.T) {
 	}
 }
 
+type question struct {
+	a      uint64
+	b      uint64
+	answer uint64
+}
+
 func TestMaximumCommonFactor(t *testing.T) {
-	type question struct {
-		a      int
-		b      int
-		answer int
-	}
 	questions := []question{
 		question{12, 18, 6},
 		question{24, 8, 8},
@@ -32,11 +33,6 @@ func TestMaximumCommonFactor(t *testing.T) {
 }
 
 func TestLeastCommonMultiple(t *testing.T) {
-	type question struct {
-		a      int
-		b      int
-		answer int
-	}
 	questions := []question{
 		question{12, 18, 36},
 		question{24, 8, 24},

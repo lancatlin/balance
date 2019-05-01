@@ -12,7 +12,7 @@ func convEquation(equation string) (reactants, products []int) {
 	if len(eq) < 2 {
 		log.Fatalln("Can't compile this equation: ", equation)
 	}
-	a, b := eq[0], eq[1]
+	//a, b := eq[0], eq[1]
 	return
 }
 
