@@ -44,3 +44,16 @@ func TestLeastCommonMultiple(t *testing.T) {
 		}
 	}
 }
+
+func TestSumMap(t *testing.T) {
+	m1 := make(map[string]int)
+	m2 := make(map[string]int)
+	m1["C"] = 1
+	m1["O"] = 2
+	m2["H"] = 2
+	m2["O"] = 1
+	mSum := sumMap(m1, m2)
+	if !(mSum["C"] ==1 && mSum["O"] == 3 && mSum["H"] == 2) {
+		t.Error("Sum map fatal: ", m1, m2, mSum)
+	}
+}

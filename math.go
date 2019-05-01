@@ -2,6 +2,12 @@ package balance
 
 import ()
 
+var primeNumbers []int
+
+func init() {
+	primeNumbers = []int{2, 3, 5, 7, 9, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 51, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199}
+}
+
 func sum(numbers, pow []int) uint64 {
 	var n uint64 = 1
 	for i, number := range numbers {
@@ -46,4 +52,15 @@ func equal(a, b []int) bool {
 		}
 	}
 	return true
+}
+
+func sumMap(m1, m2 map[string]int) (mSum map[string]int) {
+	mSum = make(map[string]int)
+	for key, value := range m1 {
+		mSum[key] += value
+	}
+	for key, value := range m2 {
+		mSum[key] += value
+	}
+	return
 }

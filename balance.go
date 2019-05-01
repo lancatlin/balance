@@ -4,12 +4,6 @@ import (
 	"log"
 )
 
-var primeNumbers []int
-
-func init() {
-	primeNumbers = []int{2, 3, 5, 7, 9, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 51}
-}
-
 func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
 	log.Printf("%v %v\t%v %v\n", a, b, ca, cb)
 	na, nb := getInNeeds(sum(a, ca), sum(b, cb))
