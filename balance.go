@@ -5,7 +5,7 @@ import (
 )
 
 func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
-	log.Printf("%v %v\t%v %v\n", a, b, ca, cb)
+	//log.Printf("%v %v\t%v %v\n", a, b, ca, cb)
 	na, nb := getInNeeds(sum(a, ca), sum(b, cb))
 	if na != 1 {
 		i := selectFactor(a, na)

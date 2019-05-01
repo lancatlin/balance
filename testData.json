@@ -2,5 +2,17 @@
   ["CH4 + O2 =CO2+H2O", "CH4 + 2O2 = CO2 + 2H2O"],
   ["C2H5OH+O2=CO2 + H2O", "C2H5OH + 3O2 = 2CO2 + 3H2O"],
   ["C3H8 + O2 = CO2 + H2O", "C3H8 + 5O2 = 3CO2 + 4H2O"],
-  ["Fe2O3 + C = Fe + CO2", "2Fe2O3 + 3C = 4Fe + 3CO2"]
+  ["Fe2O3 + C = Fe + CO2", "2Fe2O3 + 3C = 4Fe + 3CO2"],
+  ["Ag + O2 + H2S = Ag2S + H2O", "4Ag + O2 + 2H2S = 2Ag2S + 2H2O"],
+  ["AgCl + Na2S = Ag2S + NaCl", "2AgCl + Na2S = Ag2S + 2NaCl"],
+  ["AgNO3 + KSCN = AgSCN + KNO3", "AgNO3 + KSCN = AgSCN + KNO3"],
+  ["Al + Cl2 = AlCl3", "2Al + 3Cl2 = 2AlCl3"],
+  ["Al + Fe3O4 = Al2O3 + Fe", "8Al + 3Fe3O4 = 4Al2O3 + 9Fe"],
+  ["Au + Cl2 = AuCl3", "2Au + 3Cl2 = 2AuCl3"],
+  ["C2H5OH + CH3COOH = CH3COOC2H5 + H2O", "C2H5OH + CH3COOH = CH3COOC2H5 + H2O"],
+  ["CO2+NaOH=Na2CO3+H2O", "CO2 + 2NaOH = Na2CO3 + H2O"],
+  ["A3B + B2 = A5B3", "5A3B + 2B2 = 3A5B3"],
+  ["Cl2+NaOH+NH3=N2H4+NaCl+H2O", "Cl2 + 2NaOH + 2NH3 = N2H4 + 2NaCl + 2H2O"],
+  ["Cl2 + NaOH = NaClO3 + NaCl + H2O", "3Cl2 + 6NaOH = NaClO3 + 5NaCl + 3H2O"],
+  ["FeS+O2=Fe2O3+SO2", "4FeS + 7O2 = 2Fe2O3 + 4SO2"]
 ]
