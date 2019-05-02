@@ -14,5 +14,6 @@
   ["A3B + B2 = A5B3", "5A3B + 2B2 = 3A5B3"],
   ["Cl2+NaOH+NH3=N2H4+NaCl+H2O", "Cl2 + 2NaOH + 2NH3 = N2H4 + 2NaCl + 2H2O"],
   ["Cl2 + NaOH = NaClO3 + NaCl + H2O", "3Cl2 + 6NaOH = NaClO3 + 5NaCl + 3H2O"],
-  ["FeS+O2=Fe2O3+SO2", "4FeS + 7O2 = 2Fe2O3 + 4SO2"]
+  ["FeS+O2=Fe2O3+SO2", "4FeS + 7O2 = 2Fe2O3 + 4SO2"],
+  ["C4H10 + O2 = CO2 + H2O", "2C4H10 + 13O2 = 8CO2 + 10H2O"]
 ]

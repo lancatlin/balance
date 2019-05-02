@@ -1,7 +1,5 @@
 package balance
 
-import ()
-
 var primeNumbers []int
 
 func init() {
@@ -20,17 +18,40 @@ func sum(numbers, pow []int) uint64 {
 
 func maximumCommonFactor(a, b uint64) uint64 {
 	c, d := a, b
-	for {
-		if c >= d {
-			if d == 0 {
-				return c
-			}
-			c %= d
-			c, d = d, c
-		} else {
-			c, d = d, c
-		}
+	if c < d {
+		c, d = d, c
 	}
+	for {
+		if d == 0 {
+			return c
+		}
+		c %= d
+		c, d = d, c
+	}
+}
+
+func mcf(a, b, ca, cb []int) (uint64, uint64) {
+	aSum := make([]int, len(primeNumbers))
+	bSum := make([]int, len(primeNumbers))
+	for i, v := range a {
+		primeFactorization(v, ca[i], &aSum)
+	}
+	for i, v := range b {
+		primeFactorization(v, cb[i], &bSum)
+	}
+	na := make([]int, len(primeNumbers))
+	nb := make([]int, len(primeNumbers))
+	for i := range primeNumbers {
+		higher := 0
+		if aSum[i] > bSum[i] {
+			higher = aSum[i]
+		} else {
+			higher = bSum[i]
+		}
+		na[i] = higher - aSum[i]
+		nb[i] = higher - bSum[i]
+	}
+	return sum(primeNumbers, na), sum(primeNumbers, nb)
 }
 
 func leastCommonMultiple(aNum, bNum uint64) uint64 {
@@ -38,7 +59,17 @@ func leastCommonMultiple(aNum, bNum uint64) uint64 {
 	return aNum * bNum / factor
 }
 
-func primeFactorization(number int) (factors map[int]int) {
+func primeFactorization(number int, x int, factors *[]int) {
+	i := 0
+	for number != 1 {
+		prime := primeNumbers[i]
+		if number%prime == 0 {
+			(*factors)[i] += x
+			number /= prime
+		} else {
+			i++
+		}
+	}
 	return
 }
 

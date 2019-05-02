@@ -6,7 +6,7 @@ import (
 
 func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
 	//log.Printf("%v %v\t%v %v\n", a, b, ca, cb)
-	na, nb := getInNeeds(sum(a, ca), sum(b, cb))
+	na, nb := mcf(a, b, ca, cb)
 	if na != 1 {
 		i := selectFactor(a, na)
 		ca[i]++
@@ -17,14 +17,6 @@ func balance(a, b, ca, cb []int) (ra, rb []int, err error) {
 	} else {
 		return ca, cb, nil
 	}
-}
-
-func getInNeeds(a, b uint64) (uint64, uint64) {
-	factor := maximumCommonFactor(a, b)
-	if factor <= 0 {
-		log.Fatalln("multiple is lower than 0:", factor)
-	}
-	return b / factor, a / factor
 }
 
 func selectFactor(a []int, na uint64) int {
