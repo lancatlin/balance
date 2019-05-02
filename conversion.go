@@ -6,6 +6,9 @@ import (
 	"strings"
 )
 
+// Compound is the structure of Chemical compound
+type Compound map[string]int
+
 func split(equation string) (r, p []string) {
 	equation = strings.ReplaceAll(equation, " ", "")
 	eq := strings.Split(equation, "=")
@@ -17,33 +20,13 @@ func split(equation string) (r, p []string) {
 	return
 }
 
-func convEquation(equation string) (reactants, products []int) {
+func convEquation(equation string) (reactants, products []Compound) {
 	r, p := split(equation)
-	allElement := make(map[string]int)
-	var re, pe []map[string]int
 	for _, v := range r {
-		element := analysis([]rune(v))
-		allElement = sumMap(element, allElement)
-		re = append(re, element)
+		reactants = append(reactants, analysis([]rune(v)))
 	}
 	for _, v := range p {
-		element := analysis([]rune(v))
-		allElement = sumMap(element, allElement)
-		pe = append(pe, element)
-	}
-	eWeights := make(map[string]int)
-	keys := mapSortByValue(allElement)
-	for i, v := range keys {
-		eWeights[v] = primeNumbers[i]
-	}
-	log.Println(allElement, eWeights)
-	reactants = make([]int, len(r))
-	for i, v := range re {
-		reactants[i] = sumElements(v, eWeights)
-	}
-	products = make([]int, len(p))
-	for i, v := range pe {
-		products[i] = sumElements(v, eWeights)
+		products = append(products, analysis([]rune(v)))
 	}
 	return
 }

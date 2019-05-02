@@ -20,6 +20,8 @@ func TestMain(t *testing.T) {
 	for _, v := range data {
 		if answer := Balance(v[0]); answer != v[1] {
 			t.Error(v, answer)
+		} else {
+			t.Log("Solved: ", answer)
 		}
 	}
 }
