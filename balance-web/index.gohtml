@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>化學平衡 Chemical Balance</title>
+  <style>
+  body {
+    padding: 50px;
+  }
+  div {
+    text-align: left;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>化學平衡 Chemical Balance</h1>
+    <p>使用說明：將未平衡的化學式輸入後，即可得到平衡後的化學式</p>
+    <p>數字不必放下標，箭號用等號代替，空白自動忽略</p>
+    <p>Example: H2 + O2 = H2O ，得到 2H2 + O2 = 2H2O</p>
+    <form action="/", method="GET">
+      <input type="text" name="a"><input type="submit">
+    </form>
+    {{if .}}
+    <h2>Question: {{.Q}}</h2>
+    <h2>Answer: {{.A}}</h2>
+    {{end}}
+    <a href="https://github.com/lancatlin/balance">專案網址</a><br>
+    <a href="https://github.com/lancatlin/balance/issues">錯誤回報</a>
+  </div>
+</html>
